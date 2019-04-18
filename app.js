@@ -13,27 +13,26 @@ if (process.env.NODE_ENV === 'development') {
 	const config = require('./webpack/webpack.dev.conf.js');
 	const webpack = require('webpack');
 	// const merge = require('webpack-merge');
-	// const webpackDevMiddleware = require('webpack-dev-middleware');
+	const webpackDevMiddleware = require('webpack-dev-middleware');
 	const historyApiFallback = require('connect-history-api-fallback');
 
-	// const options = {
-	// 	contentBase: '/',
-	// 	publicPath: '/',
-	// 	noInfo: true,
-	// 	hot: true,
-	// 	historyApiFallback: true,
-	// 	stats: {
-	// 		colors: true
-	// 	}
-	// };
+	const options = {
+		
+		publicPath: '/',
+	};
+
 	const compiler = webpack(config);
 
 	app.use(historyApiFallback({
 		index: '/index.html'
 	}));
-	// app.use(webpackDevMiddleware(compiler, options));
+	// app.use(express.static(path.join(__dirname, "/")));
 
-	app.get('/*', (req, res)=> res.sendFile(__dirname + '/index.html') );
+	app.use(webpackDevMiddleware(compiler, options));
+
+	// app.get("*", (req, res) => {
+	//     res.sendFile(path.join(__dirname, "index.html"));
+	// });
 
 } else if (process.env.NODE_ENV === 'production'){
 	const webConfig = require('./webpack/config.js');

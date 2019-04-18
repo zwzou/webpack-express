@@ -2,7 +2,7 @@
 const config = require('./config');
 
 module.exports = {
-	entry: '../web/index.js',
+	entry: './web/index.js',
 	output: {
 		path: config.build.assetsRoot,
 		filename: '[name].js',
@@ -11,14 +11,6 @@ module.exports = {
 		: config.dev.assetsPublicPath
 	},
 	module: {
-		rules: [
-			{
-				test: /\.css$/,
-				use: 'css-loader'
-			}
-		]
-	},
-	plugins: [
-		
-	]
+		rules: []
+	}
 }
