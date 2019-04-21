@@ -3,13 +3,16 @@ const path = require('path');
 
 module.exports = {
 	dev: {
-		assetsPublicPath: './'
+		assetsPublicPath: '/',
+
+		devtool: 'cheap-module-eval-source-map',
 
 	},
 	build: {
 		assetsRoot: path.resolve(__dirname, '../dist'),
-		assetsPublicPath: './',
+		assetsPublicPath: '/',
+		assetsSubDirectory: 'static',
 
-
+		devTool: 'source-map'
 	}
 }

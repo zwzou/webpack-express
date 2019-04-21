@@ -2,11 +2,13 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const config = require('./config.js');
 const baseWebpackConfig = require('./webpack.base.conf');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
 	mode: 'development',
-	devtool: 'source-map',
+	devtool: config.dev.devtool,
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
