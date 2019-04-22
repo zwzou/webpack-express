@@ -34,7 +34,7 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
 	plugins: [
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
-			template: './web/index.html',
+			template: './views/index.html',
 			// chunks: ['manifest', 'vendor', 'index'], // 每个HTML引用的js模块
 			inject: true, // js插入的位置
 			minify: {

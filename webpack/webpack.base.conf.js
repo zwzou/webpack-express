@@ -2,7 +2,7 @@
 const config = require('./config');
 
 module.exports = {
-	entry: './web/index.js',
+	entry: './views/index.js',
 	output: {
 		path: config.build.assetsRoot,
 		filename: '[name].js',
