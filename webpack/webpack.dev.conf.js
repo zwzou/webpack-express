@@ -8,6 +8,7 @@ const baseWebpackConfig = require('./webpack.base.conf');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
 	mode: 'development',
+	entry: ['webpack-hot-middleware/client?noInfo=true&reload=true', './views/index.js'],
 	devtool: config.dev.devtool,
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),

@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
 	dev: {
 		assetsPublicPath: '/',
-
+		assetsSubDirectory: 'static',
 		devtool: 'cheap-module-eval-source-map',
 
 	},

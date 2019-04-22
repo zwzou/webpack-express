@@ -6,6 +6,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = require('./config.js');
+const utils = require('.utils');
 const baseWebpackConfig = require('./webpack.base.conf');
 
 const prodWebpackConfig = merge(baseWebpackConfig, {
@@ -13,7 +14,7 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
 	devtool: config.build.devtool,
 	output: {
 		path: config.build.assetsRoot,
-		filename: path.join(config.build.assetsSubDirectory, 'js/[name].[chunkhash].js')
+		filename: utils.assetsPath('js/[name].[chunkhash].js')	
 	},
 	optimization: {
 		splitChunks: {
@@ -48,7 +49,7 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
 			chunksSortMode: 'dependency'
 		}),
 		new MiniCssExtractPlugin({
-			filename: path.join(config.build.assetsSubDirectory, 'css/[name].[contenthash].js')
+			filename: utils.assetsPath('css/[name].[contenthash].css')
 		})
 	]
 }) 
